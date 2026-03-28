@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0"> 
+    <title>Recipie Book App</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div class="app-container">
+
+        <nav>
+            <button class="tab-btn active" onclick="showTab('add')">Add Recipe</button>
+            <button class="tab-btn" onclick="showTab('view')">Saved Recipes</button>
+        </nav>
+        
+        <div id="add-tab" class="tab-content">
+            <form id="recipe-form">
+                <h2>Add Recipe</h2>
+                <input type="text" id="recipe-name" placeholder="Recipe Name" required>
+                <textarea id="recipe-ingredients" placeholder="Ingredients" required></textarea>
+                <button type="submit">Save Recipe</button>
+            </form>
+        </div>
+
+        <div id="view-tab" class="tab-content">
+            <h2>Saved Recipes</h2>
+            <div id="display-area"></div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
