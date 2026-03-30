@@ -10,6 +10,7 @@ function renderRecipes() {
         <div class="recipe-card">
             <h3>${recipe.name}</h3>
             <p>${recipe.ingredients}</p>
+            <p>${recipe.steps}</p>
             <button onclick="deleteRecipe(${index})">Delete</button>
         </div>
     `).join('');
@@ -21,7 +22,8 @@ form.addEventListener('submit', (e) => {
 
     const newRecipe = {
         name: document.getElementById('recipe-name').value, 
-        ingredients: document.getElementById('recipe-ingredients').value
+        ingredients: document.getElementById('recipe-ingredients').value, 
+        steps: document.getElementById('recipe-steps').value
     }; 
 
     recipes.push(newRecipe); 
