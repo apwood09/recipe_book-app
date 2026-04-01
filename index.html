@@ -17,6 +17,17 @@
         <div id="add-tab" class="tab-content">
             <form id="recipe-form">
                 <h2>Add Recipe</h2>
+                <label for="categories">Choose a Category:</label>
+                <select id="categories" name="categories">
+                    <option value="Bevrages">Bevrages</option>
+                    <option value="Appetizer">Appetizers</option>
+                    <option value="Snack">Snacks</option>
+                    <option value="Soups">Soups</option>
+                    <option value="Salad">Salads</option>
+                    <option value="Main">Main Dish</option>
+                    <option value="Side">Side Dish</option>
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Bread">Breads</option>
                 <input type="text" id="recipe-name" placeholder="Recipe Name" required>
                 <textarea id="recipe-ingredients" placeholder="Ingredients" required></textarea>
                 <textarea id="recipe-steps" placeholder="Steps" required></textarea>
@@ -26,6 +37,17 @@
 
         <div id="view-tab" class="tab-content">
             <h2>Saved Recipes</h2>
+            <div class="tab">
+                <button class="tablinks active" onclick="openRecipe(event, 'Bevrages')">Bevrages</button>
+                <button class="tablinks" onclick="openRecipe(event, 'Appetizers')">Appetizers</button>
+                <button class="tablinks" onclick="openRecipe(event, 'Snacks')">Snacks</button>
+                <button class="tablinks" onclick="openRecipe(event, 'Breads')">Breads</button>
+                <button class="tablinks" onclick="openRecipe(event, 'Soups')">Soups</button>
+                <button class="tablinks" onclick="openRecipe(event, 'Salads')">Salads</button>
+                <button class="tablinks" onclick="openRecipe(event, 'Main Dish')">Main Dish</button>
+                <button class="tablinks" onclick="openRecipe(event, 'Side Dish')">Side Dish</button>
+                <button class="tablinks" onclick="openRecipe(event, 'Breakfast')">Breakfast</button>
+            </div>
             <div id="display-area"></div>
         </div>
 
