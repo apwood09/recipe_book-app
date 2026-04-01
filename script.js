@@ -1,12 +1,15 @@
 const form = document.getElementById('recipe-form');
 const displayArea = document.getElementById('display-area');
+let currentCategory = 'Bevrages'; 
 
 // recipe from storage or initialize empty array 
 let recipes = JSON.parse(localStorage.getItem('myRecipes')) || [];
 
 // recipe from storage or empty array 
 function renderRecipes() {
-    displayArea.innerHTML = recipes.map((recipe, index) => `
+    const filteredRecipes = recipes.filter(r => r.category === currentCategory);
+
+    displayArea.innerHTML = filteredRecipes.map((recipe, index) => `
         <div class="recipe-card">
             <h3>${recipe.name}</h3>
             <p>${recipe.ingredients}</p>
@@ -16,11 +19,24 @@ function renderRecipes() {
     `).join('');
 }
 
+// tab handler filter 
+function openRecipe(evt, categoryName) {
+    currentCategory = categoryName; 
+    let tablinks = document.getElementsByClassName("tablinks");
+    for (let i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    evt.currentTarget.className += " active";
+    
+    renderRecipes(); // Render filtered results
+}
+
 // add recipe 
 form.addEventListener('submit', (e) => {
     e.preventDefault(); 
 
     const newRecipe = {
+        category: document.getElementById('categories').value, 
         name: document.getElementById('recipe-name').value, 
         ingredients: document.getElementById('recipe-ingredients').value, 
         steps: document.getElementById('recipe-steps').value
