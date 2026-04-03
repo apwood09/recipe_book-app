@@ -10,16 +10,20 @@
     <div class="app-container">
 
         <nav>
+             <!-- add recipe -->
             <button class="tab-btn active" onclick="showTab('add')">Add Recipe</button>
+             <!-- saved recipes -->
             <button class="tab-btn" onclick="showTab('view')">Saved Recipes</button>
         </nav>
         
+        <!-- add recipe: input info & category options -->
         <div id="add-tab" class="tab-content">
             <form id="recipe-form">
                 <h2>Add Recipe</h2>
+                <!-- category dropdown menu -->
                 <label for="categories">Choose a Category:</label>
                 <select id="categories" name="categories">
-                    <option value="Bevrages">Bevrages</option>
+                    <option value="Beverages">Beverages</option>
                     <option value="Appetizer">Appetizers</option>
                     <option value="Snack">Snacks</option>
                     <option value="Soups">Soups</option>
@@ -35,10 +39,12 @@
             </form>
         </div>
 
+        <!-- saved recipes: category buttons & recipe display -->
         <div id="view-tab" class="tab-content">
             <h2>Saved Recipes</h2>
+            <!-- category buttons -->
             <div class="tab">
-                <button class="tablinks active" onclick="openRecipe(event, 'Bevrages')">Bevrages</button>
+                <button class="tablinks active" onclick="openRecipe(event, 'Beverages')">Beverages</button>
                 <button class="tablinks" onclick="openRecipe(event, 'Appetizers')">Appetizers</button>
                 <button class="tablinks" onclick="openRecipe(event, 'Snacks')">Snacks</button>
                 <button class="tablinks" onclick="openRecipe(event, 'Breads')">Breads</button>
@@ -48,6 +54,7 @@
                 <button class="tablinks" onclick="openRecipe(event, 'Side Dish')">Side Dish</button>
                 <button class="tablinks" onclick="openRecipe(event, 'Breakfast')">Breakfast</button>
             </div>
+            <!-- recipe display -->
             <div id="display-area"></div>
         </div>
 
