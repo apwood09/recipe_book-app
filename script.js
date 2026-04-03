@@ -2,13 +2,15 @@ const form = document.getElementById('recipe-form');
 const displayArea = document.getElementById('display-area');
 let currentCategory = 'Bevrages'; 
 
-// recipe from storage or initialize empty array 
+// recipe from storage or empty array 
 let recipes = JSON.parse(localStorage.getItem('myRecipes')) || [];
 
 // recipe from storage or empty array 
 function renderRecipes() {
+    // filter categories 
     const filteredRecipes = recipes.filter(r => r.category === currentCategory);
 
+    // recipe dispaly outline 
     displayArea.innerHTML = filteredRecipes.map((recipe, index) => `
         <div class="recipe-card">
             <h3>${recipe.name}</h3>
@@ -28,13 +30,14 @@ function openRecipe(evt, categoryName) {
     }
     evt.currentTarget.className += " active";
     
-    renderRecipes(); // Render filtered results
+    renderRecipes(); // render filtered info
 }
 
 // add recipe 
 form.addEventListener('submit', (e) => {
     e.preventDefault(); 
 
+    // recipe values
     const newRecipe = {
         category: document.getElementById('categories').value, 
         name: document.getElementById('recipe-name').value, 
@@ -45,7 +48,7 @@ form.addEventListener('submit', (e) => {
     recipes.push(newRecipe); 
     localStorage.setItem('myRecipes', JSON.stringify(recipes)); 
 
-    form.reset(); 
+    form.reset(); // reset form 
     renderRecipes(); // show new recipes immediately 
 
 }); 
@@ -60,13 +63,13 @@ window.deleteRecipe = function(index) {
 // tab switching 
 window.showTab = function(tabName) {
 
-    // hide elemets with class 'tab-content'
+    // hide elemets: class 'tab-content'
     document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none'); 
      
-    // remove active class from all butons
+    // remove active class buttons 
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active')); 
 
-    // show specific tab and actie button
+    // show specific tab and active button
     if (tabName === 'add') {
         document.getElementById('add-tab').style.display = 'block'; 
         document.querySelector('button[onclick="showTab(\'add\')"]').classList.add('active');
