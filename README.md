@@ -40,4 +40,4 @@ Recipie app where users choose a category from a dropdown menu and inputs recipe
     * click on the category choosen for saved recipe 
 <br>
 
-REAPEAT steps 3-4 to save multiple catgories 
+REAPEAT steps 3-4 to save multiple recipes  
