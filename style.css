@@ -1,0 +1,122 @@
+/* color pallete */ 
+:root {
+    --primary: #a8dadc; /* soft mint */
+    --secondary: #d4a373; /* earthy tan */
+    --accent: #b5838d; /* dusty rose */
+    --bg-color: #fefae0; /* creamy parchment */
+    --text-color: #588157; /* forest green */
+    --font-family: 'Georgia', serif;
+}
+
+/* body */ 
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    padding: 20px;
+}
+
+/* nav & buttons */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    background: linear-gradient(135deg, #e9edc9 0%, #ccd5ae 100%);
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 2px solid #faedcd;
+}
+
+.tab-btn, .tablinks {
+    background: white;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover, .tablinks:hover, .tab-btn.active, .tablinks.active {
+    background-color: var(--accent);
+    color: white;
+    box-shadow: 0 0 10px rgba(181, 131, 141, 0.5);
+}
+
+/* tab & content */
+.tab-content {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px dashed var(--secondary);
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+h2 {
+    color: var(--secondary);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* form styling */ 
+#recipe-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#recipe-form label {
+    font-style: italic;
+    color: #8a817c;
+}
+
+#recipe-form input, #recipe-form select, #recipe-form textarea {
+    padding: 10px;
+    border: 1px solid var(--primary);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-family: var(--font-family);
+}
+
+#recipe-form button[type="submit"] {
+    background-color: var(--text-color);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+#recipe-form button[type="submit"]:hover {
+    background-color: #3a5a40;
+}
+
+/* dispaly area */
+#display-area {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.recipe-card {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid #faedcd;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.05);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
